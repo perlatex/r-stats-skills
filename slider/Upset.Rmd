@@ -143,18 +143,20 @@ class: center, middle
 ---
 ## 什么是 Skills 
 
-Skills 是让 AI 按照研究者认可的规范，稳定地完成一类科研任务。
+Skill 是一套可以.red[重复使用]的任务执行方法。
 
-<br>
+
+```{r, out.width = "100%", echo=FALSE}
+knitr::include_graphics("./images/skill_workflow.png")
+```
 
 - 本质是一个**文件夹**，核心是一份 `SKILL.md` 说明书
 - 里面写清楚：**什么时候用**、**按什么步骤做**、**遵守哪些规范**
 - AI 判断任务匹配时，自动加载并照做
 
-<br>
 
 .content-box-blue[.Large[
-把"经验和规范"整理成文件，让每次结果**可复现、可传承**
+把"经验和规范"整理成文件，让每次结果**可复现、可传承**。
 ]]
 
 
@@ -174,6 +176,14 @@ Skills 是让 AI 按照研究者认可的规范，稳定地完成一类科研任
 | `quarto-skill`    | 整合代码、图表、结果生成可复现报告                  |
 | `r-package-skill` | 按最佳实践组织函数、测试与文档                      |
 
+
+
+---
+## Skills 存放的位置
+
+```{r, out.width = "100%", echo=FALSE}
+knitr::include_graphics("./images/skill_install.png")
+```
 
 
 
@@ -228,23 +238,23 @@ knitr::include_graphics("./images/Rstudio_Posit_Assistant.png")
 
 | 需求 | 普通提问                   | 使用 Skills 后                        |
 |------|----------------------------|---------------------------------------|
-| 统计 | 对language_learning.csv汇总统计 | 使用.red[/tidyverse-patterns], 对language_learning.csv汇总统计|
-| 画图 | 画出hours和score的散点图| 使用.red[/r-ggplot2], 画出hours与score的散点图  |
-| 模型 | 建立hours和method预测score的贝叶斯模型  | 使用.red[/r-bayes], 建立hours和method预测score的贝叶斯模型 |
+| .red[统计] | 对language_learning.csv汇总统计 | 使用.red[/tidyverse-patterns], 对language_learning.csv汇总统计|
+| .red[画图] | 画出hours和score的散点图| 使用.red[/r-ggplot2], 画出hours与score的散点图  |
+| .red[模型] | 建立hours和method预测score的贝叶斯模型  | 使用.red[/r-bayes], 建立hours和method预测score的贝叶斯模型 |
 
 
 
 ---
-## 测试看哪个最优秀？
+## 任务：测试看哪个最优秀？
 
 <br>
 <br>
 
 
-|      IDE集成                   | 不使用 skill      | 使用 the skill |
-|--------------------------------|-------------------|----------------|
-| 不集成到Rstudio（Claude Code） |                   |                |
-| 集成到Rstudio（posit AI）      |                   |                |
+|      IDE集成                   | 不使用 skill      | .red[使用 the skill] |
+|--------------------------------|-------------------|----------------------|
+| 不集成到Rstudio（Claude Code） |                   |                      |
+| 集成到Rstudio（posit AI）      |                   |                      |
 
 
 
@@ -273,44 +283,61 @@ knitr::include_graphics("./images/Rstudio_Posit_Assistant.png")
 ---
 class: center, middle
  
-# 四、如何创建 Skills
+# 四、如何创建属于自己 Skills
 
 ---
-## 手写创建 Skills
+## 方法一：手写创建 Skills
 
 **1. 建立文件夹与说明书**
 
-```text
-my-skill/
-└── SKILL.md      # 触发条件 + 操作步骤 + 规范
+```{r, out.width = "80%", echo=FALSE}
+knitr::include_graphics("./images/skills_str.png")
 ```
 
-<br>
+
+---
+## 方法一：手写创建 Skills
+
 
 **2. 在 `SKILL.md` 顶部写 YAML 头，说明"是什么、何时用"**
 
+.content-box-blue[
 ```yaml
 ---
-name: my-skill
-description: 用 ggplot2 绘制符合课题组统一规范的图表（越具体，越容易被准确触发）
+name: r-ggplot2
+description: 用 ggplot2 绘制符合课题组统一规范的图表
 ---
+
+# 核心约定
+
+- 使用白色背景
+- 使用Okabe–Ito配色
+- 使用英文字体
 ```
+]
+
 
 
 ---
-## 让 AI 创建 Skills
+## 方法二：让 AI 创建 Skills
 
-正文用自然语言写清楚步骤与规范**
+**用自然语言写清楚步骤与规范**
 
 .content-box-blue[
-一句话让 AI 帮忙起草：*"请帮我创建一个 skill, 用于 ……"*
+帮我写一个结构方程模型的 skill <br>
+它需要完成：<br>
+1. 探索性分析<br>
+2. 验证性分析<br>
+3. 结构方程模型<br><br>
+
+最终给出R语言代码并输出一份分析报告
 ]
 
 
 
 
 ---
-## 用大神的 Skills （推荐）
+## 方法三：用大神的 Skills （推荐）
 
 <br>
 - https://github.com/christopherkenny/awesome-rstats-skills
@@ -328,6 +355,9 @@ description: 用 ggplot2 绘制符合课题组统一规范的图表（越具体�
 - https://github.com/Master-cai/Research-Paper-Writing-Skills
 - https://github.com/HKUSTDial/Supervisor-Skills
 - https://github.com/Galaxy-Dawn/claude-scholar
+
+
+
 
 
 ---
